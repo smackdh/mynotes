@@ -1,22 +1,13 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'First App!',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'First App!'),
-    );
-  }
+  runApp(MaterialApp(
+    title: 'Test Title!',
+    theme: ThemeData(
+      primarySwatch: Colors.blue,
+    ),
+    home: const MyHomePage(title: 'Why does this title get overwritten?'),
+  ));
 }
 
 class MyHomePage extends StatefulWidget {
