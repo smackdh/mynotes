@@ -15,6 +15,15 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text("Whats up bitch"),
+        ),
+        body: Center(
+          child: TextButton(
+            onPressed: () {},
+            child: const Text('Register'),
+          ),
+        ));
   }
 }
