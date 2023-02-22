@@ -22,6 +22,19 @@ class _HomePageState extends State<HomePage> {
   late final TextEditingController _password;
 
   @override
+  void initState() {
+    _email = TextEditingController();
+    _password = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _email.dispose();
+    _password.dispose();
+    super.dispose();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
