@@ -45,6 +45,9 @@ class _HomePageState extends State<HomePage> {
           title: const Text("Whats up bitch"),
         ),
         body: FutureBuilder(
+          future: Firebase.initializeApp(
+            options: DefaultFirebaseOptions.currentPlatform,
+          ),
           builder: (context, snapshot) {
             return Column(
               children: [
@@ -65,9 +68,6 @@ class _HomePageState extends State<HomePage> {
                 ),
                 TextButton(
                   onPressed: () async {
-                    await Firebase.initializeApp(
-                      options: DefaultFirebaseOptions.currentPlatform,
-                    );
                     final email = _email.text;
                     final password = _password.text;
                     final UserCredential = await FirebaseAuth.instance
