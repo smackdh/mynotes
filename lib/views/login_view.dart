@@ -62,9 +62,10 @@ class _LoginViewState extends State<LoginView> {
                       onPressed: () async {
                         final email = _email.text;
                         final password = _password.text;
-                        final UserCredential = await FirebaseAuth.instance
-                            .createUserWithEmailAndPassword(
+                        final userCredential = await FirebaseAuth.instance
+                            .signInWithEmailAndPassword(
                                 email: email, password: password);
+                        print(userCredential);
                       },
                       child: const Text('Login'),
                     ),
