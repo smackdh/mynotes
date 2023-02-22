@@ -19,9 +19,15 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Whats up bitch"),
         ),
-        body: TextButton(
-          onPressed: () async {},
-          child: const Text('Register'),
+        body: Column(
+          children: [
+            TextField(),
+            TextField(),
+            TextButton(
+              onPressed: () async {},
+              child: const Text('Register'),
+            ),
+          ],
         ));
   }
 }
