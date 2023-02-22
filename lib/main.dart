@@ -49,6 +49,9 @@ class _HomePageState extends State<HomePage> {
                     const InputDecoration(hintText: 'Enter your email')),
             TextField(
               controller: _password,
+              obscureText: true,
+              enableSuggestions: false,
+              autocorrect: false,
               decoration:
                   const InputDecoration(hintText: 'Enter your password'),
             ),
