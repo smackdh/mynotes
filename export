@@ -1,0 +1,25 @@
+[?1049h[>4;2m[?1h=[?2004h[?1004h[1;29r[?12h[?12l[22;2t[22;1t[27m[29m[m[H[2J[?25l[29;1H"~/.zshrc" 128L, 4982B[1;1H# Enable Powerlevel10k instant prompt. Should stay close to the top of ~~[2;1H/.zshrc.
+# Initialization code that may require console input (password prompts,  [4;1H[y/n]
+# confirmations, etc.) must go above this block; everything else may go  [6;1Hbelow.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}}[8;1H.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}}[10;1H.zsh"
+fi
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# Path to mongodb
+# removed since I installed with homebrew instead.
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Set list of themes to pick from when loading at random[1;1H[?25h
+
+[29;1H[?2004l[>4;m[23;2t[23;1t[29;1H[K[29;1H[?1004l[?2004l[?1l>[>4;m[?1049l3 files to edit
