@@ -32,6 +32,7 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.deepOrange,
           title: const Text("Logged in"),
         ),
         body: FutureBuilder(
