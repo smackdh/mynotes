@@ -33,7 +33,7 @@ class _LoginViewState extends State<LoginView> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.deepOrange,
-          title: const Text("Logged in"),
+          title: const Text("Login"),
         ),
         body: FutureBuilder(
           future: Firebase.initializeApp(

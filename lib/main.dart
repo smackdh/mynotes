@@ -14,7 +14,7 @@ void main() {
     theme: ThemeData(
       primarySwatch: Colors.blue,
     ),
-    home: const RegisterView(),
+    home: const HomePage(),
   ));
 }
 
@@ -25,6 +25,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          elevation: 4,
           backgroundColor: Colors.deepOrange,
           title: const Text("Home 🏠"),
         ),
@@ -39,11 +40,7 @@ class HomePage extends StatelessWidget {
                 final emailVerified = user?.emailVerified ?? false;
                 if (emailVerified) {
                 } else {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const VerifyEmailView(),
-                    ),
-                  );
+                  return const VerifyEmailView();
                 }
                 return const Text("Done ✅");
               default:
@@ -64,33 +61,28 @@ class VerifyEmailView extends StatefulWidget {
 class _VerifyEmailViewState extends State<VerifyEmailView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.blueGrey[900],
-      appBar: AppBar(
-          backgroundColor: Colors.deepOrange[900],
-          title: const Text("Email Verification 📧")),
-      body: Center(
-        child: Container(
-          width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Please verify your email address',
-                style: TextStyle(color: Colors.white, fontSize: 25),
-                textAlign: TextAlign.center,
-              ),
-              TextButton(
-                onPressed: () async {
-                  final user = FirebaseAuth.instance.currentUser;
-                  await user?.sendEmailVerification();
-                },
-                child: const Text('Send email verification'),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+    return Container(
+        color: Colors.deepOrange[50],
+        child: Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Please verify your email address',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 25,
+                  decoration: TextDecoration.none),
+              textAlign: TextAlign.center,
+            ),
+            TextButton(
+              onPressed: () async {
+                final user = FirebaseAuth.instance.currentUser;
+                await user?.sendEmailVerification();
+              },
+              child: const Text('Send email verification'),
+            ),
+          ],
+        )));
   }
 }
