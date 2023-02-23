@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mynotes/views/login_view.dart';
 
@@ -32,6 +33,7 @@ class HomePage extends StatelessWidget {
           builder: (context, snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.done:
+                print(FirebaseAuth.instance.currentUser);
                 return const Text("Done ✅");
               default:
                 return const Text('Loading....');
