@@ -30,56 +30,36 @@ class _LoginViewState extends State<LoginView> {
   }
 
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.deepOrange,
-          title: const Text("Login"),
+    return Column(
+      children: [
+        TextField(
+            controller: _email,
+            enableSuggestions: false,
+            autocorrect: false,
+            keyboardType: TextInputType.emailAddress,
+            decoration: const InputDecoration(hintText: 'Enter your email')),
+        TextField(
+          controller: _password,
+          obscureText: true,
+          enableSuggestions: false,
+          autocorrect: false,
+          decoration: const InputDecoration(hintText: 'Enter your password'),
         ),
-        body: FutureBuilder(
-          future: Firebase.initializeApp(
-            options: DefaultFirebaseOptions.currentPlatform,
-          ),
-          builder: (context, snapshot) {
-            switch (snapshot.connectionState) {
-              case ConnectionState.done:
-                return Column(
-                  children: [
-                    TextField(
-                        controller: _email,
-                        enableSuggestions: false,
-                        autocorrect: false,
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: const InputDecoration(
-                            hintText: 'Enter your email')),
-                    TextField(
-                      controller: _password,
-                      obscureText: true,
-                      enableSuggestions: false,
-                      autocorrect: false,
-                      decoration: const InputDecoration(
-                          hintText: 'Enter your password'),
-                    ),
-                    TextButton(
-                      onPressed: () async {
-                        final email = _email.text;
-                        final password = _password.text;
-                        try {
-                          final userCredential = await FirebaseAuth.instance
-                              .signInWithEmailAndPassword(
-                                  email: email, password: password);
-                          print(userCredential);
-                        } on FirebaseAuthException catch (e) {
-                          print("ERROR: ${e.code}");
-                        }
-                      },
-                      child: const Text('Login'),
-                    ),
-                  ],
-                );
-              default:
-                return const Text('Loading....');
+        TextButton(
+          onPressed: () async {
+            final email = _email.text;
+            final password = _password.text;
+            try {
+              final userCredential = await FirebaseAuth.instance
+                  .signInWithEmailAndPassword(email: email, password: password);
+              print(userCredential);
+            } on FirebaseAuthException catch (e) {
+              print("ERROR: ${e.code}");
             }
           },
-        ));
+          child: const Text('Login'),
+        ),
+      ],
+    );
   }
 }
