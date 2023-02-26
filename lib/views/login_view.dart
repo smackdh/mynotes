@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import '../firebase_options.dart';
+import 'verify_email_view.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
