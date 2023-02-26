@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mynotes/views/login_view.dart';
@@ -15,6 +17,10 @@ void main() {
       primarySwatch: Colors.blue,
     ),
     home: const HomePage(),
+    routes: {
+      '/login/': (context) => LoginView(),
+      '/register/': (context) => RegisterView()
+    },
   ));
 }
 
