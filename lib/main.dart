@@ -9,14 +9,15 @@ import 'firebase_options.dart';
 import 'views/verify_email_view.dart';
 import 'dart:developer' as devtools show log;
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(MaterialApp(
     title: 'Home',
     theme: ThemeData(
       primarySwatch: Colors.orange,
     ),
-    home: const HomePage(),
+    home: const NotesView(),
     routes: {
       '/login/': (context) => const LoginView(),
       '/register/': (context) => const RegisterView()
@@ -76,8 +77,11 @@ class _NotesViewState extends State<NotesView> {
               switch (value) {
                 case MenuAction.logout:
                   final shouldLogout = await showLogOutDialog(context);
-                  devtools.log(shouldLogout.toString());
-                  break;
+                  if (shouldLogout) {
+                    await FirebaseAuth.instance.signOut();
+                    Navigator.of(context)
+                        .pushNamedAndRemoveUntil('/login/', (_) => false);
+                  }
               }
             },
             itemBuilder: (context) {
