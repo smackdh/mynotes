@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
             if (emailVerified) {
               print("Email is verified ✅");
             } else {
-              return const LoginView();
+              return const VerifyEmailView();
             }
             return const LoginView();
           default:

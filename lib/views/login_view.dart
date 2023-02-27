@@ -37,7 +37,10 @@ class _LoginViewState extends State<LoginView> {
       body: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('images/me_nervous.PNG'), fit: BoxFit.cover)),
+                image: NetworkImage(
+                    'https://static.vecteezy.com/system/resources/previews/009/376/704/original/abstract-dark-orange-blob-element-free-png.png'),
+                fit: BoxFit.contain,
+                alignment: Alignment(1, -1))),
         child: Column(
           children: [
             TextField(
