@@ -7,6 +7,7 @@ import 'package:mynotes/views/register_view.dart';
 
 import 'firebase_options.dart';
 import 'views/verify_email_view.dart';
+import 'dart:developer' as devtools show log;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -72,12 +73,13 @@ class _NotesViewState extends State<NotesView> {
         actions: [
           PopupMenuButton<MenuAction>(
             onSelected: (value) {
-              print('LOG LOG LOG');
+              devtools.log(value.toString());
             },
             itemBuilder: (context) {
               return const [
                 PopupMenuItem<MenuAction>(
-                    value: MenuAction.logout, child: Text('Logout'))
+                    value: MenuAction.logout, child: Text('Logout')),
+                PopupMenuItem<MenuAction>(child: Text('Second Page'))
               ];
             },
           )
