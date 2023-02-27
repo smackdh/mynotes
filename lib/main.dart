@@ -30,10 +30,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: Firebase.initializeApp(
-        options: DefaultFirebaseOptions.currentPlatform,
-      ),
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.done:
@@ -41,13 +39,13 @@ class HomePage extends StatelessWidget {
             if (user != null) {
               if (user.emailVerified) {
                 print("Email is verified ✅");
+                return const NotesView();
               } else {
                 return const VerifyEmailView();
               }
             } else {
               return const LoginView();
             }
-            return const NotesView();
           default:
             return const CircularProgressIndicator();
         }
