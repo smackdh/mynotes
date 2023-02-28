@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mynotes/utilities/show_error_dialog.dart';
 import 'dart:developer' as devtools show log;
 
 import 'package:mynotes/views/constants/routes.dart';
@@ -60,7 +61,9 @@ class _RegisterViewState extends State<RegisterView> {
                 Navigator.of(context)
                     .pushNamedAndRemoveUntil(loginRoute, (_) => false);
               } on FirebaseAuthException catch (e) {
-                devtools.log("ERROR: ${e.code}");
+                showErrorDialog(context, e.code.toString());
+              } catch (e) {
+                showErrorDialog(context, e.toString());
               }
             },
             child: const Text('Register'),
