@@ -78,7 +78,7 @@ class _LoginViewState extends State<LoginView> {
                   );
                   devtools.log(userCredential.toString());
                 } on FirebaseAuthException catch (e) {
-                  devtools.log("ERROR: ${e.code}");
+                  await showErrorDialog(context, (e.code.toString()));
                 }
               },
               child: const Text('Login'),
