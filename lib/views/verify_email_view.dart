@@ -24,10 +24,17 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'Please verify your email address',
+                  'We have sent you a verification email, please click the link provided in the email and then proceed to login.',
+                  style: TextStyle(
+                      color: Color.fromRGBO(0, 0, 0, 1),
+                      fontSize: 26,
+                      decoration: TextDecoration.none),
+                  textAlign: TextAlign.center),
+              const Text(
+                "If you haven't received any verification email, click the button below.",
                 style: TextStyle(
                     color: Colors.black,
-                    fontSize: 25,
+                    fontSize: 16,
                     decoration: TextDecoration.none),
                 textAlign: TextAlign.center,
               ),
@@ -36,7 +43,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                   final user = FirebaseAuth.instance.currentUser;
                   await user?.sendEmailVerification();
                 },
-                child: const Text('Send email verification'),
+                child: const Text('Send a new email verification'),
               ),
               TextButton(
                   onPressed: () {
