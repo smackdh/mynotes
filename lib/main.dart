@@ -18,7 +18,7 @@ void main() async {
     theme: ThemeData(
       primarySwatch: Colors.orange,
     ),
-    home: const NotesView(),
+    home: const LoginView(),
     routes: {
       loginRoute: (context) => const LoginView(),
       registerRoute: (context) => const RegisterView(),
