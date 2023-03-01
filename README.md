@@ -1,6 +1,13 @@
 # mynotes
 
-A new Flutter project. 1
+[X] - RegisterView
+[X] - LoginView
+[X] - EmailVerificationView
+[X] - LogOut
+[X] - NotesView
+[] - Authentication Cleanup
+[] -
+
 
 ## Getting Started
 
