@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mynotes/views/constants/routes.dart';
 
@@ -51,7 +50,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                     Navigator.of(context).pushNamedAndRemoveUntil(
                         registerRoute, (route) => false);
                   },
-                  child: Text('Restart'))
+                  child: const Text('Restart'))
             ],
           ))),
     );
