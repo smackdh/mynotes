@@ -72,6 +72,7 @@ class _NotesViewState extends State<NotesView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Notes 📝'),
+        
         actions: [
           PopupMenuButton<MenuAction>(
             onSelected: (value) async {
