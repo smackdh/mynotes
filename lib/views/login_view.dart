@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mynotes/services/auth/auth_exceptions.dart';
 import 'package:mynotes/services/auth/auth_service.dart';
 import 'dart:developer' as devtools show log;
 
@@ -82,10 +83,21 @@ class _LoginViewState extends State<LoginView> {
                         verifyEmailRoute, (route) => false);
                   }
                   devtools.log(userCredential.toString());
-                } on FirebaseAuthException catch (e) {
-                  await showErrorDialog(context, (e.code.toString()));
-                } catch (e) {
-                  await showErrorDialog(context, e.toString());
+                } on UserNotFoundAuthException {
+                  await showErrorDialog(
+                    context,
+                    'User not found',
+                  );
+                } on WrongPasswordAuthException {
+                  await showErrorDialog(
+                    context,
+                    'Wrong Credentials',
+                  );
+                } on GenericAuthException {
+                  await showErrorDialog(
+                    context,
+                    'Authentication Error',
+                  );
                 }
               },
               child: const Text('Login'),
