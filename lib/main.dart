@@ -12,9 +12,8 @@ import 'views/verify_email_view.dart';
 
 import 'dart:developer' as devtools show log;
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(MaterialApp(
     title: 'Home',
     theme: ThemeData(
