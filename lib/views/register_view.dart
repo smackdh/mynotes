@@ -7,7 +7,7 @@ import 'dart:developer' as devtools show log;
 import 'package:mynotes/views/constants/routes.dart';
 
 class RegisterView extends StatefulWidget {
-  const RegisterView({super.key});
+  const RegisterView({Key? key}) : super(key: key);
 
   @override
   State<RegisterView> createState() => _RegisterViewState();
@@ -31,6 +31,7 @@ class _RegisterViewState extends State<RegisterView> {
     super.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -56,10 +57,12 @@ class _RegisterViewState extends State<RegisterView> {
               final email = _email.text;
               final password = _password.text;
               try {
-                await AuthService.firebase()
-                    .createUser(email: email, password: password);
-                Navigator.of(context).pushNamed(verifyEmailRoute);
+                await AuthService.firebase().createUser(
+                  email: email,
+                  password: password,
+                );
                 AuthService.firebase().sendEmailVerification();
+                Navigator.of(context).pushNamed(verifyEmailRoute);
               } on WeakPasswordAuthException {
                 await showErrorDialog(
                   context,

@@ -20,7 +20,6 @@ class AuthService implements AuthProvider {
       );
 
   @override
-  // TODO: implement currentUser
   AuthUser? get currentUser => provider.currentUser;
 
   @override
@@ -35,8 +34,10 @@ class AuthService implements AuthProvider {
 
   @override
   Future<void> logOut() => provider.logOut();
+
   @override
   Future<void> sendEmailVerification() => provider.sendEmailVerification();
+
   @override
   Future<void> initialize() => provider.initialize();
 }

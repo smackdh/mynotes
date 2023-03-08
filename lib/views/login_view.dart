@@ -70,7 +70,7 @@ class _LoginViewState extends State<LoginView> {
                 final email = _email.text;
                 final password = _password.text;
                 try {
-                  final userCredential = AuthService.firebase()
+                  AuthService.firebase()
                       .logIn(email: email, password: password);
                   final user = AuthService.firebase().currentUser;
                   if (user?.isEmailVerified ?? false) {
@@ -82,7 +82,6 @@ class _LoginViewState extends State<LoginView> {
                     Navigator.of(context).pushNamedAndRemoveUntil(
                         verifyEmailRoute, (route) => false);
                   }
-                  devtools.log(userCredential.toString());
                 } on UserNotFoundAuthException {
                   await showErrorDialog(
                     context,
