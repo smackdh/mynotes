@@ -5,7 +5,7 @@
 [X] - EmailVerificationView
 [X] - LogOut
 [X] - NotesView
-[] - Authentication Cleanup
+[x] - Authentication Cleanup
 [] -
 
 
